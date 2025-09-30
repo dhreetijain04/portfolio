@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-dev",
+  "version": "1.0.0",
+  "description": "Modern PERN stack developer portfolio",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && set DB_PASSWORD=Admin && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "install-all": "npm run install-server && npm run install-client",
+    "start": "cd server && set DB_PASSWORD=Admin && npm start",
+    "seed": "cd server && set DB_PASSWORD=Admin && node database/seed.js"
+  },
+  "keywords": [
+    "portfolio",
+    "PERN",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "Express"
+  ],
+  "author": "Dhreeeti Jain",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
