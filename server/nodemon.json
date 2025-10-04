@@ -1,0 +1,8 @@
+{
+  "watch": ["index.js", "routes/**/*.js", "middleware/**/*.js", "config/**/*.js"],
+  "ignore": ["contact-submissions.json", "node_modules/**/*", "uploads/**/*"],
+  "ext": "js,json",
+  "delay": "2000",
+  "restartable": "rs",
+  "verbose": false
+}

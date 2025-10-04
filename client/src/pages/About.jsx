@@ -1,17 +1,13 @@
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { AppContext } from '../contexts/AppContext';
+// Import your profile picture
+import profilePicture from '../assets/images/WhatsApp Image 2025-10-04 at 22.30.27_c70391ad.jpg';
 
 const About = () => {
   const { theme } = useContext(AppContext);
 
   return (
     <>
-      <Helmet>
-        <title>About - Dhreeti Jain</title>
-        <meta name="description" content="Learn more about Dhreeti Jain - Full Stack Developer specializing in modern web technologies. Currently pursuing ECE at MAIT." />
-      </Helmet>
-
       {/* About Hero */}
       <section className="hero">
         <div className="container">
@@ -32,20 +28,45 @@ const About = () => {
                 width: '300px',
                 height: '300px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
                 margin: '0 auto 2rem',
-                fontSize: '4rem',
-                color: 'white',
-                fontWeight: 'bold'
+                overflow: 'hidden',
+                border: '4px solid #3b82f6',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
               }}>
-                DJ
+                {/* Your actual profile picture */}
+                <img 
+                  src={profilePicture}
+                  alt="Dhreeti Jain"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                  onError={(e) => {
+                    // Fallback to initials if image fails to load
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                {/* Fallback initials */}
+                <div style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                  display: 'none',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '4rem',
+                  color: 'white',
+                  fontWeight: 'bold'
+                }}>
+                  DJ
+                </div>
               </div>
               <h3 style={{ marginBottom: '0.5rem', color: '#ffffff' }}>Dhreeti Jain</h3>
               <p style={{ color: '#e2e8f0', marginBottom: '1rem' }}>Full Stack Developer</p>
-              <p style={{ color: '#e2e8f0' }}>📍 Delhi, India</p>
+              <p style={{ color: '#e2e8f0', marginBottom: '0.5rem' }}>📍 Delhi, India</p>
+              <p style={{ color: '#e2e8f0' }}>📞 +91 9818909530</p>
             </div>
 
             {/* About Text */}
@@ -53,17 +74,17 @@ const About = () => {
               <h2 style={{ marginBottom: '1.5rem', color: '#f1f5f9' }}>Hello! I'm Dhreeti</h2>
               <div style={{ fontSize: '1.125rem', lineHeight: '1.8', color: '#000000' }}>
                 <p style={{ marginBottom: '1.5rem' }}>
-                  Passionate Electronics and Communication Engineering student at MAIT with expertise in full-stack development.
+                  ECE student at MAIT building innovative AI-powered solutions and next-generation web applications with expertise in full-stack development.
                 </p>
                 
                 <p style={{ marginBottom: '1.5rem' }}>
-                  Currently building innovative AI-powered solutions and contributing to open-source projects 
-                  while creating next-generation web applications with modern technologies.
+                  Proficient in the complete PERN stack (PostgreSQL, Express.js, React, Node.js) with strong expertise in Java and Data Structures & Algorithms. 
+                  Contributing to open-source projects and creating scalable web applications with modern technologies.
                 </p>
 
                 <p>
-                  Gained hands-on experience as a Project Intern at DRDO, contributing to cutting-edge research projects 
-                  and developing practical skills in real-world applications.
+                  Passionate about solving complex problems through code, implementing efficient solutions, and staying 
+                  updated with the latest technologies in web development and artificial intelligence.
                 </p>
               </div>
             </div>
@@ -87,7 +108,7 @@ const About = () => {
                 <p style={{ color: '#000000', marginBottom: '0.5rem' }}>
                   Maharaja Agrasen Institute of Technology, Delhi
                 </p>
-                <p style={{ color: '#666666', fontSize: '0.875rem' }}>2023 - 2027</p>
+                <p style={{ color: '#666666', fontSize: '0.875rem' }}>2023-2027 | CGPA: 8.18</p>
                 <p style={{ color: '#000000', marginTop: '0.5rem' }}>
                   Specializing in cutting-edge technologies and modern engineering practices.
                 </p>
@@ -104,7 +125,7 @@ const About = () => {
                 <p style={{ color: '#000000', marginBottom: '0.5rem' }}>
                   Defence Research and Development Organisation (DRDO)
                 </p>
-                <p style={{ color: '#666666', fontSize: '0.875rem' }}>Summer 2024</p>
+                <p style={{ color: '#666666', fontSize: '0.875rem' }}>Summer 2025</p>
                 <p style={{ color: '#000000', marginTop: '0.5rem' }}>
                   Contributed to innovative research projects combining advanced technology and defense applications, 
                   gaining valuable experience in real-world problem-solving and cutting-edge development.
@@ -122,7 +143,7 @@ const About = () => {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
             <div className="card">
-              <h3 style={{ color: '#3b82f6', marginBottom: '1rem' }}>Frontend</h3>
+              <h3 style={{ color: '#3b82f6', marginBottom: '1rem' }}>Frontend Development</h3>
               <div className="tech-tags">
                 <span className="tech-tag">React</span>
                 <span className="tech-tag">JavaScript</span>
@@ -133,13 +154,23 @@ const About = () => {
             </div>
 
             <div className="card">
-              <h3 style={{ color: '#3b82f6', marginBottom: '1rem' }}>Backend</h3>
+              <h3 style={{ color: '#3b82f6', marginBottom: '1rem' }}>Backend Development</h3>
               <div className="tech-tags">
                 <span className="tech-tag">Node.js</span>
                 <span className="tech-tag">Express.js</span>
                 <span className="tech-tag">PostgreSQL</span>
                 <span className="tech-tag">REST APIs</span>
-                <span className="tech-tag">JWT Auth</span>
+              </div>
+            </div>
+
+            <div className="card">
+              <h3 style={{ color: '#3b82f6', marginBottom: '1rem' }}>Programming & DSA</h3>
+              <div className="tech-tags">
+                <span className="tech-tag">Java</span>
+                <span className="tech-tag">Data Structures</span>
+                <span className="tech-tag">Algorithms</span>
+                <span className="tech-tag">Problem Solving</span>
+                <span className="tech-tag">OOP</span>
               </div>
             </div>
 
@@ -148,14 +179,13 @@ const About = () => {
               <div className="tech-tags">
                 <span className="tech-tag">Git</span>
                 <span className="tech-tag">VS Code</span>
-                <span className="tech-tag">Docker</span>
-                <span className="tech-tag">Linux</span>
                 <span className="tech-tag">Postman</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
     </>
   );
 };

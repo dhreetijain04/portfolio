@@ -89,7 +89,6 @@ const Footer = () => {
             <div>
               <p>📧 dhreetijain04@gmail.com</p>
               <p>📍 Delhi, India</p>
-              <p>🎓 MAIT, ECE (2023-2027)</p>
             </div>
           </div>
         </div>

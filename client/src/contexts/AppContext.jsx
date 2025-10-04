@@ -33,8 +33,6 @@ const appReducer = (state, action) => {
       return { ...state, profile: action.payload, loading: false };
     case ActionTypes.SET_PROJECTS:
       return { ...state, projects: action.payload, loading: false };
-    case ActionTypes.SET_SKILLS:
-      return { ...state, skills: action.payload, loading: false };
     case ActionTypes.SET_EXPERIENCE:
       return { ...state, experience: action.payload, loading: false };
     case ActionTypes.CLEAR_ERROR:
@@ -90,17 +88,6 @@ export const AppProvider = ({ children }) => {
       }
     },
 
-    // Fetch skills
-    fetchSkills: async (category = '') => {
-      try {
-        dispatch({ type: ActionTypes.SET_LOADING, payload: true });
-        const response = await apiService.getSkills(category);
-        dispatch({ type: ActionTypes.SET_SKILLS, payload: response.data });
-      } catch (error) {
-        dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || 'Failed to fetch skills' });
-      }
-    },
-
     // Fetch experience
     fetchExperience: async () => {
       try {
@@ -134,7 +121,6 @@ export const AppProvider = ({ children }) => {
         await Promise.all([
           actions.fetchProfile(),
           actions.fetchProjects(),
-          actions.fetchSkills(),
         ]);
       } catch (error) {
         console.error('Failed to load initial data:', error);

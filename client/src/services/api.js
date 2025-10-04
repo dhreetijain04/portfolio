@@ -46,9 +46,6 @@ export const apiService = {
   getProjects: (params = {}) => api.get('/projects', { params }),
   getProject: (id) => api.get(`/projects/${id}`),
   
-  // Skills
-  getSkills: (category = '') => api.get('/skills', { params: { category } }),
-  
   // Experience
   getExperience: () => api.get('/experience'),
   

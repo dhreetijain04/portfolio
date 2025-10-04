@@ -19,24 +19,21 @@ A responsive, modern portfolio website built with pure PERN stack (PostgreSQL, E
 - **Dark Theme**: Beautiful black gradient with purple/blue accents and glassmorphism
 - **Smooth Animations**: Fade-ins, hover effects, particle backgrounds
 - **Fully Responsive**: Mobile-first design with clamp() typography
-- **Pure PERN**: No Prisma, no Tailwind - just raw PostgreSQL and custom CSS
+- **Pure PERN**: No external ORMs, no Tailwind - just raw PostgreSQL and custom CSS
 - **Auto Port Detection**: Finds available ports automatically
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 - **React 18** - Modern React with hooks
-- **Framer Motion** - Smooth animations and transitions
-- **Tailwind CSS** - Utility-first CSS framework
 - **React Router** - Client-side routing
+- **Custom CSS** - Pure CSS with CSS variables and grid/flexbox
 - **Axios** - HTTP client for API calls
-- **React Hook Form** - Form handling and validation
 
 ### Backend
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
-- **PostgreSQL** - Database
-- **Prisma** - Database ORM
+- **PostgreSQL** - Database with raw SQL queries
 - **JWT** - Authentication
 - **Nodemailer** - Email functionality
 - **Multer** - File upload handling
@@ -114,8 +111,7 @@ portfolio-dev/
 4. **Set up the database**
    ```bash
    cd server
-   npx prisma migrate dev
-   npx prisma db seed
+   npm run db:setup
    ```
 
 5. **Start the development servers**
@@ -307,7 +303,7 @@ For support or questions, please contact:
 ## Technology Stack
 - **Frontend**: React.js with regular CSS (no Tailwind)
 - **Backend**: Node.js, Express.js 
-- **Database**: PostgreSQL with raw SQL queries (no Prisma)
+- **Database**: PostgreSQL with raw SQL queries (no external ORMs)
 - **Authentication**: JWT
 
 Built with ❤️ using pure PERN stack

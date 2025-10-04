@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { AppContext } from '../contexts/AppContext';
 import Button from '../components/common/Button';
 import LoadingSpinner from '../components/common/LoadingSpinner';
@@ -39,10 +38,6 @@ const ProjectDetail = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{project.title} - Dhreeti Jain</title>
-        <meta name="description" content={project.description} />
-      </Helmet>
 
       {/* Project Hero */}
       <section className="hero">

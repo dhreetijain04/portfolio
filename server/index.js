@@ -11,13 +11,7 @@ require('dotenv').config();
 const { closePool } = require('./config/database');
 
 // Import routes
-const authRoutes = require('./routes/auth');
-const projectRoutes = require('./routes/projects');
-const skillRoutes = require('./routes/skills');
-const experienceRoutes = require('./routes/experience');
-const contactRoutes = require('./routes/contact');
-const profileRoutes = require('./routes/profile');
-const adminRoutes = require('./routes/admin');
+const contactRoutes = require('./routes/simple-contact');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -93,13 +87,49 @@ app.get('/api/health', (req, res) => {
 });
 
 // API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/skills', skillRoutes);
-app.use('/api/experience', experienceRoutes);
 app.use('/api/contact', contactRoutes);
-app.use('/api/profile', profileRoutes);
-app.use('/api/admin', adminRoutes);
+
+// Temporary static data for development
+app.get('/api/profile', (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      firstName: 'Dhreeti',
+      lastName: 'Jain',
+      title: 'Full Stack Developer & AI Enthusiast',
+      bio: 'ECE student at MAIT building innovative AI-powered solutions and next-generation web applications with expertise in full-stack development.',
+      email: 'dhreetijain04@gmail.com',
+      phone: '+91 9818909530',
+      location: 'New Delhi, India'
+    }
+  });
+});
+
+app.get('/api/projects', (req, res) => {
+  res.json({
+    success: true,
+    data: [
+      {
+        id: 1,
+        title: 'AgroAI - AI-Powered Farming Assistant',
+        description: 'AI-Powered Farming Assistant with Google Gemini AI + YOLOv8 pest detection for crop disease identification and smart farming solutions',
+        technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Google Gemini AI', 'YOLOv8', 'Python'],
+        githubUrl: 'https://github.com/dhreetijain04/AgroAI',
+        liveUrl: 'https://agro-ai-app.netlify.app',
+        featured: true
+      },
+      {
+        id: 2,
+        title: 'AI Code Review Assistant',
+        description: 'GitHub-integrated platform for automated development code review optimization with AI-powered suggestions and quality analysis',
+        technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'GitHub API', 'OpenAI API'],
+        githubUrl: 'https://github.com/dhreetijain04/ai-code-review-assistant',
+        liveUrl: 'https://ai-code-review-assistant.netlify.app',
+        featured: true
+      }
+    ]
+  });
+});
 
 // Serve React app in production
 if (process.env.NODE_ENV === 'production') {
