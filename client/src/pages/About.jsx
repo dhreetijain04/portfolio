@@ -180,6 +180,8 @@ const About = () => {
                 <span className="tech-tag">Git</span>
                 <span className="tech-tag">VS Code</span>
                 <span className="tech-tag">Postman</span>
+                <span className="tech-tag">Netlify</span>
+                <span className="tech-tag">Render</span>
               </div>
             </div>
           </div>
