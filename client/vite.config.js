@@ -5,6 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Correct base path for Netlify
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -16,6 +17,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    host: true, // Allow external connections
     proxy: {
       '/api': {
         target: 'http://localhost:5000',
@@ -34,16 +36,22 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'terser',
+    target: 'esnext', // Modern build target
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
+          utils: ['axios'],
         },
       },
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
+    include: ['react', 'react-dom', 'react-router-dom', 'axios'],
+  },
+  preview: {
+    port: 4173,
+    host: true,
   },
 })
