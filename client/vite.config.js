@@ -32,7 +32,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'build',
+    outDir: '../build',
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'terser',

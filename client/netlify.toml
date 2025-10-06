@@ -1,12 +1,9 @@
 [build]
-  # Directory to change to before starting a build
-  base = "client/"
+  # Build command runs from the repository root
+  command = "cd client && npm install && npm run build"
   
-  # Directory that contains the deploy-ready HTML files and assets
-  publish = "build/"
-  
-  # Default build command
-  command = "npm run build"
+  # Directory that contains the deploy-ready HTML files and assets  
+  publish = "build"
 
 [build.environment]
   # Node.js version (meets Vite requirements)
