@@ -1,10 +1,57 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { apiService } from '../services/api';
 
+// Static profile data for production/fallback
+const staticProfile = {
+  firstName: 'Dhreeti',
+  lastName: 'Jain',
+  title: 'Full Stack Developer & AI Enthusiast',
+  bio: 'ECE student at MAIT building innovative AI-powered solutions and next-generation web applications with expertise in full-stack development.',
+  email: 'dhreetijain04@gmail.com',
+  phone: '+91 9818909530',
+  location: 'New Delhi, India'
+};
+
+// Static projects data for production/fallback
+const staticProjects = [
+  {
+    id: 1,
+    title: 'AgroAI - AI-Powered Farming Assistant',
+    description: 'AI-Powered Farming Assistant with Google Gemini AI + YOLOv8 pest detection for crop disease identification and smart farming solutions',
+    technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Google Gemini AI', 'YOLOv8', 'Python'],
+    githubUrl: 'https://github.com/dhreetijain04/AgroAI',
+    liveUrl: 'https://agro-ai-app.netlify.app',
+    featured: true,
+    status: 'COMPLETED',
+    key_features: [
+      'AI-powered crop disease identification',
+      'Real-time pest detection using YOLOv8',
+      'Smart farming recommendations',
+      'Comprehensive crop health analysis'
+    ]
+  },
+  {
+    id: 2,
+    title: 'AI Code Review Assistant',
+    description: 'GitHub-integrated platform for automated development code review optimization with AI-powered suggestions and quality analysis',
+    technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'GitHub API', 'OpenAI API'],
+    githubUrl: 'https://github.com/dhreetijain04/ai-code-review-assistant',
+    liveUrl: 'https://ai-code-review-assistant.netlify.app',
+    featured: true,
+    status: 'COMPLETED',
+    key_features: [
+      'Automated code quality analysis',
+      'AI-powered improvement suggestions',
+      'GitHub integration for seamless workflow',
+      'Real-time code review feedback'
+    ]
+  }
+];
+
 // Initial state
 const initialState = {
   profile: null,
-  projects: [],
+  projects: staticProjects, // Start with static projects
   skills: [],
   experience: [],
   loading: false,
@@ -73,7 +120,9 @@ export const AppProvider = ({ children }) => {
         const response = await apiService.getProfile();
         dispatch({ type: ActionTypes.SET_PROFILE, payload: response.data });
       } catch (error) {
-        dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || 'Failed to fetch profile' });
+        console.warn('Profile API not available, using static profile data:', error.message);
+        // Fallback to static profile when API is not available (e.g., on Netlify)
+        dispatch({ type: ActionTypes.SET_PROFILE, payload: staticProfile });
       }
     },
 
@@ -84,7 +133,9 @@ export const AppProvider = ({ children }) => {
         const response = await apiService.getProjects(params);
         dispatch({ type: ActionTypes.SET_PROJECTS, payload: response.data });
       } catch (error) {
-        dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || 'Failed to fetch projects' });
+        console.warn('API not available, using static projects data:', error.message);
+        // Fallback to static projects when API is not available (e.g., on Netlify)
+        dispatch({ type: ActionTypes.SET_PROJECTS, payload: staticProjects });
       }
     },
 
@@ -117,11 +168,9 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const loadInitialData = async () => {
       try {
-        // Load profile and projects by default
-        await Promise.all([
-          actions.fetchProfile(),
-          actions.fetchProjects(),
-        ]);
+        // Try to load from API, but gracefully fallback to static data if unavailable
+        await actions.fetchProjects();
+        await actions.fetchProfile();
       } catch (error) {
         console.error('Failed to load initial data:', error);
       }
