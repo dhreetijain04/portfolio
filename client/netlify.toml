@@ -3,14 +3,14 @@
   base = "client/"
   
   # Directory that contains the deploy-ready HTML files and assets
-  publish = "client/build/"
+  publish = "build/"
   
   # Default build command
   command = "npm run build"
 
 [build.environment]
-  # Node.js version (use latest LTS)
-  NODE_VERSION = "20.17.0"
+  # Node.js version (meets Vite requirements)
+  NODE_VERSION = "20.19.0"
   
   # NPM version
   NPM_VERSION = "10"
