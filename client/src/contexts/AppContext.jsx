@@ -21,14 +21,7 @@ const staticProjects = [
     technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Google Gemini AI', 'YOLOv8', 'Python'],
     githubUrl: 'https://github.com/dhreetijain04/AgroAI',
     liveUrl: 'https://agro-ai-app.netlify.app',
-    featured: true,
-    status: 'COMPLETED',
-    key_features: [
-      'AI-powered crop disease identification',
-      'Real-time pest detection using YOLOv8',
-      'Smart farming recommendations',
-      'Comprehensive crop health analysis'
-    ]
+    featured: true
   },
   {
     id: 2,
@@ -37,14 +30,7 @@ const staticProjects = [
     technologies: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'GitHub API', 'OpenAI API'],
     githubUrl: 'https://github.com/dhreetijain04/ai-code-review-assistant',
     liveUrl: 'https://ai-code-review-assistant.netlify.app',
-    featured: true,
-    status: 'COMPLETED',
-    key_features: [
-      'Automated code quality analysis',
-      'AI-powered improvement suggestions',
-      'GitHub integration for seamless workflow',
-      'Real-time code review feedback'
-    ]
+    featured: true
   }
 ];
 
