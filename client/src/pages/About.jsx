@@ -66,7 +66,7 @@ const About = () => {
               <h3 style={{ marginBottom: '0.5rem', color: '#ffffff' }}>Dhreeti Jain</h3>
               <p style={{ color: '#e2e8f0', marginBottom: '1rem' }}>Full Stack Developer</p>
               <p style={{ color: '#e2e8f0', marginBottom: '0.5rem' }}>📍 Delhi, India</p>
-              <p style={{ color: '#e2e8f0' }}>📞 +91 9818909530</p>
+              {/* Phone number removed as requested */}
             </div>
 
             {/* About Text */}

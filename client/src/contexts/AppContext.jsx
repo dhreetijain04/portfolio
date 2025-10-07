@@ -7,9 +7,8 @@ const staticProfile = {
   lastName: 'Jain',
   title: 'Full Stack Developer & AI Enthusiast',
   bio: 'ECE student at MAIT building innovative AI-powered solutions and next-generation web applications with expertise in full-stack development.',
-  email: 'dhreetijain04@gmail.com',
-  phone: '+91 9818909530',
-  location: 'New Delhi, India'
+    email: 'dhreetijain04@gmail.com',
+    location: 'New Delhi, India'
 };
 
 // Static projects data for production/fallback

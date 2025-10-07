@@ -124,13 +124,7 @@ const Contact = () => {
                       <p style={{ color: '#000000' }}>dhreetijain04@gmail.com</p>
                     </div>
                   </div>
-                  <div className="contact-item">
-                    <div className="contact-icon">📱</div>
-                    <div className="contact-details">
-                      <h3 style={{ color: '#000000' }}>Phone</h3>
-                      <p style={{ color: '#000000' }}>+91 9818909530</p>
-                    </div>
-                  </div>
+                  {/* Phone number removed as requested */}
                   <div className="contact-item">
                     <div className="contact-icon">📍</div>
                     <div className="contact-details">
